@@ -1,7 +1,6 @@
 import * as functions from '../../utils/functions';
 import { mutations } from '../boilerplate';
 
-
 export default {
   set: mutations.set,
   addSymbol(state, symbol) {
@@ -27,7 +26,7 @@ export default {
     state.data.symbols.push(-symbol);
   },
   removeLastSymbol(state) {
-    state.data.symbols.pop();
+    if (state.data.symbols.length > 1) state.data.symbols.pop();
   },
   clearExisting(state) {
     state.data.symbols = ['0'];

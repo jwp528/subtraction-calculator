@@ -1,4 +1,3 @@
-
 // constants
 const operations = ['+', '-', '÷', 'x'];
 
@@ -20,29 +19,35 @@ const multiply = (base, factor) => {
   return product;
 };
 
-const divide = (dividend, divisor) => {
-  if (dividend == 0 || divisor == 0) { return 'ERROR'; }
+const divide = (dividend, divisor) => 
+  // if (dividend === 0) return 0;
+  // if (divisor === 0) {
+  //   return "ERROR";
+  // }
 
-  let quotient = 0;
-  let remainder = dividend;
+  // let quotient = 0;
+  // let remainder = dividend;
 
-  while (remainder >= divisor) {
-    remainder -= divisor;
-    ++quotient;
-  }
+  // while (remainder >= divisor) {
+  //   remainder -= divisor;
+  //   ++quotient;
+  // }
 
-  if (remainder > 0) { return parseFloat(`${quotient}.${parseFloat(remainder)/2.0}`); }
+  // if (remainder > 0) {
+  //   return parseFloat(`${quotient}.${parseFloat(remainder) / 2.0}`);
+  // }
 
-  return quotient;
-};
+  // return quotient;
+
+   dividend / divisor
+;
 
 const translationTable = {
-  '÷': divide,
-  'x': multiply,
+  ÷: divide,
+  x: multiply,
   '+': add,
   '-': subtract,
 };
-
 
 const solve = (equation, sum = 0, leftSymbol = '') => {
   try {
@@ -69,7 +74,7 @@ const solve = (equation, sum = 0, leftSymbol = '') => {
       operand += symbol;
       symbol = equation.shift();
 
-      if (isNaN(symbol)) done = true;
+      if (isNaN(symbol) && symbol !== '.') done = true;
     }
 
     // operate
@@ -90,10 +95,5 @@ const solve = (equation, sum = 0, leftSymbol = '') => {
 };
 
 export {
-  subtract,
-  add,
-  multiply,
-  divide,
-  isOperation,
-  solve,
+ subtract, add, multiply, divide, isOperation, solve 
 };

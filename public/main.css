@@ -1,0 +1,10 @@
+.calc-field {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem !important;
+}
+
+.calc-btn {
+    
+    width:75px !important;
+    height:75px !important;
+}

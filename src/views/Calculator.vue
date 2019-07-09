@@ -96,7 +96,7 @@
       Screen,
     },
   })
-  export @dec class Calculator extends Vue{
+  export default class Calculator extends Vue{
     @State formula;
     @formula.Mutation addSymbol;
     @formula.Mutation setOperation;

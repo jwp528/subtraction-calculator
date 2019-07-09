@@ -29,7 +29,7 @@ import Screen from './components/Screen.vue';
 const settings = namespace('settings/');
 
 @Component()
-export @dec class App extends Vue {
+export default class App extends Vue {
   @State settings;
 }
 </script>

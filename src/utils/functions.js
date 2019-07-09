@@ -30,14 +30,14 @@ const divide = (dividend, divisor) => {
     ++quotient;
   }
 
-  if (remainder > 0) { return parseFloat(`${quotient}.${remainder}`); }
+  if (remainder > 0) { return parseFloat(`${quotient}.${parseFloat(remainder)/2.0}`); }
 
   return quotient;
 };
 
 const translationTable = {
-  ÷: divide,
-  x: multiply,
+  '÷': divide,
+  'x': multiply,
   '+': add,
   '-': subtract,
 };

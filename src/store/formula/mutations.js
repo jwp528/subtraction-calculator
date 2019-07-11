@@ -4,11 +4,12 @@ import { mutations } from '../boilerplate';
 export default {
   set: mutations.set,
   addSymbol(state, symbol) {
-    if (state.data.symbols[0] === '0') {
-      if (symbol !== '0') state.data.symbols.shift();
-      else return false;
+    if (state.data.symbols[0] === '0' && symbol !== '0') {
+      state.data.symbols.shift();
+      state.data.symbols.push(symbol);
+    } else {
+      state.data.symbols.push(symbol);
     }
-    state.data.symbols.push(symbol);
   },
   setOperation(state, operation) {
     // if the last symbol is an operator. switch it. else add it
@@ -27,6 +28,7 @@ export default {
   },
   removeLastSymbol(state) {
     if (state.data.symbols.length > 1) state.data.symbols.pop();
+    else if (state.data.symbols[0] !== '0') state.data.symbols[0] = 0;
   },
   clearExisting(state) {
     state.data.symbols = ['0'];

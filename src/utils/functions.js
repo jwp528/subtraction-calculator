@@ -1,9 +1,16 @@
 // constants
+const constants = ['π', 'c'];
+
+//operations
 const operations = ["+", "-", "÷", "x"];
 
 // checks
 function isOperation(symbol) {
   return operations.indexOf(symbol) !== -1;
+}
+
+function isConstant(symbol) {
+  return constants.indexOf(symbol) !== -1;
 }
 
 // calculations
@@ -63,6 +70,24 @@ const translationTable = {
   '+': add,
   '-': subtract,
 };
+
+const constantValue = {
+  'π': Math.PI,
+  'c': 299792458, // 299 792 458 m/s
+}
+
+function translate(symbol) {
+  if (isOperation(symbol)) {
+    return translationTable[symbol];
+  }
+  if (isConstant(symbol)) {
+    return constantValue[symbol];
+  }
+
+  return symbol;
+}
+
+
 
 const solve = (equation, sum = 0, leftSymbol = "") => {
   try {

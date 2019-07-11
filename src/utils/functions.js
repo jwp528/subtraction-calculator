@@ -35,7 +35,7 @@ const divide = (dividend, divisor) => {
   }
 
   while (remainder > 0) {
-    if (decimal.length > 12) {
+    if (decimal.length == 10) {
       break;
     }
 
